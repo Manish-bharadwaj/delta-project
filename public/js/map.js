@@ -17,35 +17,4 @@
         ))
         .addTo(map);
 
-        map.on('load', () => {
-            map.loadImage(
-                'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
-                (error, image) => {
-                    if (error) throw error;
-                    map.addImage('cat', image); map.addSource('point', {
-                        'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': [
-                                {
-                                    'type': 'Feature',
-                                    'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': listing.geometry.coordinates,
-                                    }
-                                }
-                            ]
-                        }
-                    });
-                    map.addLayer({
-                        'id': 'points',
-                        'type': 'symbol',
-                        'source': 'point', // reference the data source
-                        'layout': {
-                            'icon-image': 'cat', // reference the image
-                            'icon-size': 0.25
-                        }
-                    });
-                }
-            );
-        })
+      
